@@ -1,0 +1,32 @@
+{
+  "actions" : {
+    "build" : {
+      "preActions" : [
+        {
+          "name" : "buildNumber Increment",
+          "script" : "#!\/bin\/sh\n\nsed -i \"\" \"\/buildNumber=[^0-9]\/ d\n:d\n6s\/9\\(_*\\)$\/_\\1\/\ntd\n6s\/^\\(_*\\)$\/1\\1\/; tn\n6s\/8\\(_*\\)$\/9\\1\/; tn\n6s\/7\\(_*\\)$\/8\\1\/; tn\n6s\/6\\(_*\\)$\/7\\1\/; tn\n6s\/5\\(_*\\)$\/6\\1\/; tn\n6s\/4\\(_*\\)$\/5\\1\/; tn\n6s\/3\\(_*\\)$\/4\\1\/; tn\n6s\/2\\(_*\\)$\/3\\1\/; tn\n6s\/1\\(_*\\)$\/2\\1\/; tn\n6s\/0\\(_*\\)$\/1\\1\/; tn\n:n\ny\/_\/0\/\" source\/pdxinfo",
+          "type" : "runScript"
+        },
+        {
+          "name" : "update imagePath",
+          "script" : "#!\/bin\/sh\n\nsed -i \"\" '7s,.*,imagePath=system\/images,' source\/pdxinfo",
+          "type" : "runScript"
+        },
+        {
+          "name" : "Update title",
+          "script" : "#!\/bin\/sh\n\nsed -i \"\" '1s\/-Dev$\/\/' source\/pdxinfo",
+          "type" : "runScript"
+        }
+      ]
+    }
+  },
+  "extension" : {
+    "identifier" : "com.panic.Playdate",
+    "name" : "Playdate"
+  },
+  "extensionTemplate" : "simulator",
+  "extensionValues" : {
+    "playdate.build-type" : "pdc",
+    "playdate.output-path" : "builds"
+  }
+}
