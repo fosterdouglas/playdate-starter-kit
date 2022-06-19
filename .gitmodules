@@ -1,3 +1,0 @@
-[submodule "source/lib/lemonade"]
-	path = source/lib/lemonade-utilities
-	url = https://github.com/fosterdouglas/lemonade-utilities
