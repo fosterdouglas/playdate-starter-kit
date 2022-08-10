@@ -1,7 +1,7 @@
-name=Project Name
+name=Project Name-Dev
 author=Project Author
 description=Project Description
 bundleID=com.author.name
 version=0.0.1
-buildNumber=1000000
-imagePath=system/images
+buildNumber=1000026
+imagePath=system/images/dev

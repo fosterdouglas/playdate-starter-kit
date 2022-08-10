@@ -12,14 +12,14 @@ import "CoreLibs/ui"
 import "CoreLibs/crank"
 
 -- -- -- -- CONSTANTS -- -- -- -- 
-import "lib/lemonade/_lemonade"
+import "lib/lemonade-utilities/_lemonade"
 local gfx <const> = playdate.graphics
 
 -- -- -- -- GLOBALS -- -- -- -- 
-
+DEBUG = false
 
 -- -- -- -- CLASSES -- -- -- -- 
-
+import "classes/SpriteTemplate"
 
 -- -- -- -- BACKGROUND -- -- -- -- 
 gfx.sprite.setBackgroundDrawingCallback(
@@ -35,6 +35,14 @@ playdate.display.setRefreshRate(30)
 -- -- -- -- UPDATE -- -- -- -- 
 function playdate.update()
 	gfx.sprite.update()
+	
+	gfx.setImageDrawMode("fillWhite")
+	gfx.drawTextAligned(
+		"Hello Playdate!", 
+		kDisplayWidth/2, 
+		(kDisplayHeight/2) - (gfx.getFont():getHeight()/3), 
+		kCenter
+	)
 end
 
 -- -- -- -- INPUTS -- -- -- -- 
